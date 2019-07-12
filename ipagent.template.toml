@@ -1,0 +1,21 @@
+logging = false
+
+[cloudflare]
+zone_id = ""
+api_key = ""
+api_email = "example@example.com"
+
+[domain]
+name = "example.com"
+proxy = true
+type = "A"
+
+[[sub_domains]]
+name = "example"
+proxy = false
+type = "A"
+
+[[sub_domains]]
+name = "www"
+proxy = true
+type = "A"
