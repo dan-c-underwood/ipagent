@@ -120,3 +120,6 @@ ipagent.toml
 
 # IDEA specific files
 .idea/*
+
+# Binary
+ipagent

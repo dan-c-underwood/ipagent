@@ -8,8 +8,10 @@ import (
 	"io/ioutil"
 	"ipagent"
 	"log"
+	"log/syslog"
 	"net"
 	"os"
+	"runtime"
 )
 
 func main() {
@@ -25,6 +27,13 @@ func main() {
 			fmt.Printf("Error loading config: %v", err)
 		}
 		os.Exit(1)
+	}
+
+	if c.Logging && runtime.GOOS != "darwin" {
+		logger, err := syslog.New(syslog.LOG_INFO, "ipagent"); if err != nil {
+			fmt.Println("Couldn't create syslog handler")
+		}
+		log.SetOutput(logger)
 	}
 
 	mh := NewMsgHandler(c.Logging)
