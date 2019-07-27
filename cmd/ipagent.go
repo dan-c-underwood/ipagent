@@ -20,7 +20,7 @@ func main() {
 
 	c, err := ipagent.NewConfig(*confPath); if err != nil {
 		if os.IsNotExist(err) {
-			fmt.Println(true, "Invalid config path specified.")
+			fmt.Println("Invalid config path specified.")
 		} else {
 			fmt.Printf("Error loading config: %v", err)
 		}
